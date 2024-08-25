@@ -1,6 +1,6 @@
 body{
     background-color: white;
-    margin:0 
+    margin:0 ;
 }
 
 span{
@@ -8,7 +8,7 @@ span{
     color:#922346;
 }
 
- h1{
+  h1{
     font-family: cursive;
     font-optical-sizing: auto;
     font-style: normal;
@@ -70,7 +70,28 @@ img{
     }
 }
 
-p, .section-2{
+.gradient-background-2{
+    text-align: justify;
+    color: black;
+    background: linear-gradient(
+        90deg,
+        white,
+        #F4D9D0
+    );
+    animation: gradient-shift-2 1s infinite alternate ease-in-out;
+}
+@keyframes gradient-shift-2{
+    0% {
+        background: linear-gradient(90deg,  #ffffff,
+        #F4D9D0);
+    }
+    100% {
+        background: linear-gradient(90deg,  #ffffff,
+        #F4D9D0);
+    }
+}
+
+.actual-blog, p, .section-2{
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 16px;
@@ -90,6 +111,7 @@ form{
     font-size: 18px;
     width:500px;
     padding: 20px;
+    margin-top: 20px;
 
 }
 
@@ -105,3 +127,52 @@ form{
     align-items: center;
 }
 
+#footerSec{
+   margin-right: 0;
+   margin-left: 0;
+}
+
+
+footer{
+    justify-self: flex-end;
+}
+
+
+#blog-name{
+    margin-bottom: 28px;
+    margin-top: 10px;
+}
+
+.actual-blog{
+    align-self: center;
+    border:#922346 solid 2px;
+    padding: 20px;
+    margin-right: 5px;
+    min-width: 400px;
+    min-height: fit-content;
+    border-radius: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.hearts{
+    align-self: center;
+}
+
+#blog-page{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer-end{
+     margin-top: auto;
+}
+
+#write, #blogs, #home{
+    color:rgba(33, 37, 41, 0.75)
+}
+
+#home{
+    background-color: #F4D9D0;
+}
