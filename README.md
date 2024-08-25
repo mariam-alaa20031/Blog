@@ -5,8 +5,8 @@
  * open it on vs code
  * open the terminal
  * run the following commands:
-       - npm i
-       - npm nodemon -g
-       - nodemon index.js
+   * npm i
+   * npm nodemon -g
+   * nodemon index.js
  * test out the blog website locally with http://localhost:3000
  * good luck :)
