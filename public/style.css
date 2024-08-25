@@ -1,4 +1,107 @@
 body{
-    background-color: rgb(239, 208, 233);
+    background-color: white;
     margin:0 
 }
+
+span{
+    font-family: cursive;
+    color:#922346;
+}
+
+ h1{
+    font-family: cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+ }
+
+.grid-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: minmax(100px,1fr);
+    grid-auto-rows: minmax(100px,1fr);
+    gap:20px;
+    padding:20px;
+    margin-bottom: 100px;
+    padding-bottom: 75px;
+    border-bottom: #D9ABAB 2px solid;
+}
+
+.blog-name{
+    background-color: white;
+    border:#922346 solid 2px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+}
+
+.blog-name:hover{
+    background-color:#D9ABAB;
+    border: solid #F4D9D0 4px;
+    color:black;
+    font-size: 22px;
+
+}
+.gradient-background {
+    text-align: left;
+    color: black;
+    background: linear-gradient(
+        90deg,
+        #D9ABAB,
+        #F4D9D0
+    );
+    animation: gradient-shift 5s infinite alternate ease-in-out;
+}
+
+img{
+    width:250px;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background: linear-gradient(90deg,  #D9ABAB,
+        #F4D9D0);
+    }
+    100% {
+        background: linear-gradient(90deg,  #D9ABAB,
+        #F4D9D0);
+    }
+}
+
+p, .section-2{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+}
+
+#addBlog h2{
+    margin-left: 0;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    background-color:#F4D9D0;
+    border:#922346 solid 2px;
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    width:500px;
+    padding: 20px;
+
+}
+
+.form-btn{
+    width: max-content;
+    margin-top: 4px;
+    align-self: end;
+}
+
+#addBlog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

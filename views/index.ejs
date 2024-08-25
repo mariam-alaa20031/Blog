@@ -1,3 +1,29 @@
-<%- include("partials/header.ejs")  %>
-<h1>Blogs By Her</h1>
+<%- include("partials/header.ejs") %>
+
+<h2 class="mt-5 section-2 display-6">Available Blogs</h2>
+
+
+<% if (blogNames && blogNames.length) { %>
+<div class="grid-wrapper mb-5">
+    <% for (let i = 0; i < blogNames.length; i++) { 
+        const blogNameSlug = blogNames[i].toLowerCase().replaceAll(" ", "-"); %>
+        <button onclick="window.location.href = 'http://'+ window.location.host + '/<%= blogNameSlug %>'" class="blog-name">        <%- blogNames[i] %>
+    </button>
+    <% } %>
+</div>
+<% } else { %>
+    <p>No available blogs to display...</p>
+<% } %>
+
+<section id="addBlog" class="mt-2">
+
+<h2 class="mt-3 section-2 display-6">Write your Blogs</h2>
+    <form action="/submit" method="post">
+        <label>Title</label>
+        <input type="text" placeholder="blog title" name="title"/>
+        <label>Blog</label>
+        <input type="text" placeholder="blog" name="blog"/>
+        <input type="submit" class="form-btn btn-light btn-outline-dark btn btn-sm" value="create"/>
+        </form>
+    </section>
 <%- include("partials/footer.ejs") %>
