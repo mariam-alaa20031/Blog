@@ -176,3 +176,30 @@ footer{
 #home{
     background-color: #F4D9D0;
 }
+
+@media(max-width:600px){
+    .grid-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: minmax(100px,1fr);
+        grid-auto-rows: minmax(100px,1fr);
+        gap:20px;
+        padding:20px;
+        margin-bottom: 100px;
+        padding-bottom: 75px;
+        border-bottom: #D9ABAB 2px solid;
+    }
+}
+@media(max-width:480px){
+    .grid-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: minmax(100px,1fr);
+        grid-auto-rows: minmax(100px,1fr);
+        gap:20px;
+        padding:20px;
+        margin-bottom: 100px;
+        padding-bottom: 75px;
+        border-bottom: #D9ABAB 2px solid;
+    }
+}
