@@ -19,6 +19,18 @@ function createUrlForBlog(blogPath, blogTitle, blog){
         res.render("blog.ejs",{blogName:blogTitle, blog:blog})
  })
 }
+app.get('/:blogPath', (req, res) => {
+    const { blogPath } = req.params;
+    const index = blogNames.findIndex(name => formatMyBlogName(name) === blogPath);
+    
+    if (index !== -1) {
+        const blogTitle = blogNames[index];
+        const blog = blogWords[index];
+        res.render('blog.ejs', { blogName: blogTitle, blog: blog });
+    } else {
+        res.status(404).send('Blog not found');
+    }
+});
 
 app.get('/', (req,res)=>{
     res.render("index.ejs", {blogNames:blogNames})
@@ -83,7 +95,8 @@ app.post('/edit', (req, res) => {
     const index = blogNames.indexOf(blogName);
     blogWords= blogWords.map(item => {if(item!==blogWords[index]) return item; else return editedBlog })
     blogWords[index] = editedBlog;
-    console.log(blogWords)
-    res.render("index.ejs", { blogNames: blogNames, blogWords: blogWords });
+    const blogPath=formatMyBlogName(blogName)
+    createUrlForBlog(blogPath,blogName,editedBlog)
+    res.render("index.ejs", { blogNames: blogNames});
  
 });
