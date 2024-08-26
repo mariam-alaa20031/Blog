@@ -101,7 +101,7 @@ img{
     margin-left: 0;
 
 }
-form{
+#addBlog form{
     display: flex;
     flex-direction: column;
     background-color:#F4D9D0;
@@ -149,6 +149,7 @@ footer{
     padding: 20px;
     margin-right: 5px;
     min-width: 400px;
+    max-width: 600px;
     min-height: fit-content;
     border-radius: 20px;
     margin-top: auto;
@@ -176,7 +177,30 @@ footer{
 #home{
     background-color: #F4D9D0;
 }
+.wrapper-blog{
+    display: flex;
+    flex-direction: column;
+    width:max-content;
+    margin-left: auto; 
+    margin-right: auto;
+}
 
+#delete-btn{
+    width: max-content;
+    align-self: flex-end;
+    margin-left: 3px;
+}
+
+.forced-input{
+    display: none;
+}
+
+.buttons{
+    display: flex;
+   justify-content: flex-end;
+   gap: 3px;
+   margin-right: 10px;
+}
 @media(max-width:600px){
     .grid-wrapper{
         display: grid;
@@ -188,9 +212,17 @@ footer{
         margin-bottom: 100px;
         padding-bottom: 75px;
         border-bottom: #D9ABAB 2px solid;
+
+    }
+    form{
+        width:400px;
+    }
+    .actual-blog{
+        min-width: 300px;
+        max-width: 400px;
     }
 }
-@media(max-width:480px){
+@media(max-width:510px){
     .grid-wrapper{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -202,4 +234,9 @@ footer{
         padding-bottom: 75px;
         border-bottom: #D9ABAB 2px solid;
     }
+
+    form{
+        width:300px;
+    }
 }
+

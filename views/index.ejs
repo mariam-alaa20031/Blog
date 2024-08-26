@@ -7,7 +7,7 @@
 <% if (blogNames && blogNames.length) { %>
 <div class="grid-wrapper mb-5">
     <% for (let i = 0; i < blogNames.length; i++) { 
-        const blogNameSlug = blogNames[i].toLowerCase().replaceAll(" ", "-"); %>
+        const blogNameSlug = blogNames[i].toLowerCase().replaceAll(" ", "-").replaceAll("'","-"); %>
         <button onclick="window.location.href = 'http://'+ window.location.host + '/<%= blogNameSlug %>'" class="blog-name">        <%- blogNames[i] %>
     </button>
     <% } %>

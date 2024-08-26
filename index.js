@@ -6,11 +6,12 @@ const port=3000
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"))
 
-const blogNames=["Dine with me", "Learn to Love", "Get ready fast", "Learn all day everyday"]
-const blogWords=["Dine with me today please", "Learn to Love", "Get ready fast", "Learn all day everyday"]
+var blogNames=["Controlling Anger", "Love Forms", "Palestine's Strength", "Mother's Love"]
+var blogWords=["Controlling anger is simpler said than done. Unlike most emotions, this one can lead to drastic outcomes if not properly tugged in. It can get you to lose your job, relationship or worse. When feeling angry, breathe and don't take decisions until you've calmed down.",
+     "Love comes in many forms like actions and words. Actions are louder than words, nonetheless, don't you ever forget that! A person who listens to your problems and makes time for you probably loves you than one that says they do but does nothing, don't you think?", "Get ready fast", "Learn all day everyday"]
 
 function formatMyBlogName(blogName){
-    return blogName.replaceAll(" ","-").toLowerCase();
+    return blogName.replaceAll(" ","-").replaceAll("'","-").toLowerCase();
 }
 
 function createUrlForBlog(blogPath, blogTitle, blog){
@@ -23,10 +24,18 @@ app.get('/', (req,res)=>{
     res.render("index.ejs", {blogNames:blogNames})
 })
 
+app.get('/home', (req, res) => {
+    res.render('index.ejs', {
+        blogNames: blogNames,
+        blogWords: blogWords
+    });
+});
+
 for(let i=0;i<blogNames.length;i++){
     const blogTitle=blogNames[i]
     const blogPath=formatMyBlogName(blogTitle)
     const blog =blogWords[i]
+    console.log(blogPath)
     createUrlForBlog(blogPath,blogTitle,blog)
 }
 
@@ -52,3 +61,29 @@ app.post('/submit', (req,res)=>{
 app.listen(port, ()=>{
     console.log("Server up and listening...")
 })
+
+
+app.post('/delete', (req, res) => {
+    const { blogName } = req.body;
+    var index=-1
+    for(let i=0;i<blogNames.length;i++){
+        if(blogNames[i]===blogName){
+            index=i;
+            break;
+        }
+    }
+     blogNames = blogNames.filter(item => item !== blogName);
+     blogWords= blogWords.filter(item => item!==blogWords[index])
+     res.render("index.ejs",{blogNames: blogNames, blogWords: blogWords});
+
+});
+
+app.post('/edit', (req, res) => {
+    const { blogName, editedBlog } = req.body;
+    const index = blogNames.indexOf(blogName);
+    blogWords= blogWords.map(item => {if(item!==blogWords[index]) return item; else return editedBlog })
+    blogWords[index] = editedBlog;
+    console.log(blogWords)
+    res.render("index.ejs", { blogNames: blogNames, blogWords: blogWords });
+ 
+});
