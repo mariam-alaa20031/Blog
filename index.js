@@ -1,8 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 
+const port=80
 const app= express()
-const port=3000
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"))
 
@@ -36,12 +36,6 @@ app.get('/', (req,res)=>{
     res.render("index.ejs", {blogNames:blogNames})
 })
 
-app.get('/home', (req, res) => {
-    res.render('index.ejs', {
-        blogNames: blogNames,
-        blogWords: blogWords
-    });
-});
 
 for(let i=0;i<blogNames.length;i++){
     const blogTitle=blogNames[i]
